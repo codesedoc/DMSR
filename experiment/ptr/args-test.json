@@ -1,0 +1,8 @@
+{
+    "approach": "dps",
+    "plm_name_or_path": "dps-bart",
+    "dataset": "ppf",
+    "output_dir": "tmp",
+    "variant": "st2pg",
+    "flags": ["smoke_test", "do_train", "do_eval", "do_predict", "dataloader_drop_last"]
+}
