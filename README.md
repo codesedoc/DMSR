@@ -7,7 +7,7 @@ Its mission is to reduce the duplicate labors when we set up and NLP models or f
 ## Data
 <ol>
     <li> MSCOCO: used to create the pseudo paraphrase generation dateset for PTR. </li>
-    <li> Yelp: used to create the pseudo paraphrase generation dateset for PTR. </li>
+    <li> Yelp: used to create the pseudo sentiment transfer dateset for PTR. </li>
     <li> PPF: used to evaluate methods for PTR. </li>
 </ol>
 
