@@ -7,16 +7,15 @@ from dataclasses import field
 import datasets
 from datasets import Dataset
 
-from experiment.utils import read_lines_from_file
-from src.nlps.argument import DataArgument, argument_class
-from src.nlps.data import Data, data_register, DatasetSplitType, TaskType, GeneralDataset, DataContainer, \
+from nlpx.argument import DataArgument, argument_class
+from nlpx.data import Data, data_register, DatasetSplitType, TaskType, GeneralDataset, DataContainer, \
     DataDirCategory, TextData
 from typing import Dict, Tuple, Union, Any, MutableMapping
 import os
 import pandas as pd
 
-from src.nlps.data.data import ALL_DATASET_SPLIT
-from src.nlps.utils.utils import max_length_of_sequences
+from nlpx.data.data import ALL_DATASET_SPLIT
+from nlpx.utils.utils import max_length_of_sequences
 
 
 class Pseudo(TextData):

@@ -1,0 +1,22 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "nlpx"
+version = "0.0.1"
+authors = [
+  { name="Sheng Xu", email="gocodedoc@gmail.com" },
+]
+description = "NLP is transformation"
+readme = "README.md"
+requires-python = ">=3.9"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: Apache Software License",
+    "Operating System :: OS Independent",
+]
+
+[project.urls]
+"Homepage" = "https://github.com/codesedoc/DMSR"
+"Bug Tracker" = "https://github.com/codesedoc/DMSR/issues"

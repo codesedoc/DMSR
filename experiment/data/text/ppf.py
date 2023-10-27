@@ -5,13 +5,13 @@ import random
 import datasets
 from datasets import Dataset
 
-from src.nlps.data import Data, data_register, DatasetSplitType, TaskType, GeneralDataset, DataContainer, DataDirCategory
+from nlpx.data import Data, data_register, DatasetSplitType, TaskType, GeneralDataset, DataContainer, DataDirCategory
 from typing import Dict, Tuple, Union, Any, MutableMapping
 import os
 import pandas as pd
 
-from src.nlps.data.data import ALL_DATASET_SPLIT
-from src.nlps.data import TextData
+from nlpx.data.data import ALL_DATASET_SPLIT
+from nlpx.data import TextData
 
 
 @data_register

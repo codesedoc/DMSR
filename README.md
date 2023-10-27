@@ -14,7 +14,15 @@ Its mission is to reduce the duplicate labors when we set up and NLP models or f
 Source of data: [MSCOCO](https://cocodataset.org/#home) ([version from here](https://github.com/IBM/quality-controlled-paraphrase-generation/tree/main/data/mscoco)), [Yelp](https://www.yelp.com/dataset) ([version from here](https://github.com/shentianxiao/language-style-transfer/tree/master/data/yelp)), [PPF](https://github.com/SALT-NLP/positive-frames)
 
 ## Installation
-### Environment Preparation 
+### Install from source
+Clone the repository and install NLPx with the following commands
+```shell
+git clone git@github.com:codesedoc/DMSR.git
+cd DMSR
+pip install -e .
+```
+### Install with Docker
+#### Preparation 
 <ul>
     <li> Ubuntu (22.04 LTS) </li>
     <li> Docker (>=  23.0.5) </li>

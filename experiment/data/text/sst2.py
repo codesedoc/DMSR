@@ -1,10 +1,9 @@
 from typing import Tuple, Any, List, Dict
 
 from datasets import Dataset
-
-from experiment.data.text.glue import GLUE
-from src.nlps.data import data_register, TaskType, DatasetSplitType
-from src.nlps.data.data import ALL_DATASET_SPLIT
+from .glue import GLUE
+from nlpx.data import data_register, TaskType, DatasetSplitType
+from nlpx.data.data import ALL_DATASET_SPLIT
 
 
 @data_register

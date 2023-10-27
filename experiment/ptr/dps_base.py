@@ -8,13 +8,14 @@ from enum import Enum
 from typing import Optional, Any, Dict, Union, Tuple, Callable, Set
 
 import torch
+from nlpx.utils.runtime import RunTime
 from pytorch_metric_learning.losses import NTXentLoss
 from torch import nn
 from transformers import PreTrainedModel, \
     PreTrainedTokenizer, PreTrainedTokenizerFast, PretrainedConfig
 from transformers.modeling_outputs import Seq2SeqLMOutput
 
-from src.nlps.data import TextData
+from nlpx.data import TextData
 
 
 class Encoder_Path_Type(Enum):
@@ -193,6 +194,7 @@ class DPSModelForPTR(PreTrainedModel):
     def forward(self, input_ids=None, attention_mask=None, labels=None, task=None, decoder_attention_mask=None,
                 **kwargs):
         config: DPSConfig = self.config
+        task = task if task in config.name2taskcase else RunTime().data.abbreviation
         config.dynamic_taskcase = config.name2taskcase[task]
         output: Seq2SeqLMOutput = super().forward(input_ids=input_ids, attention_mask=attention_mask, labels=labels,
                                decoder_attention_mask=decoder_attention_mask, **kwargs)

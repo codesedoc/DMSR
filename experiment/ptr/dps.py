@@ -10,16 +10,16 @@ from torch.utils.data import Sampler
 from transformers import AutoModelForSeq2SeqLM, Seq2SeqTrainer, Seq2SeqTrainingArguments, DataCollatorForSeq2Seq
 
 from ..utils import tuning_hp_prepare_stpg
-from src.nlps.data.data import MultiTaskDataset, merge_datasets, Data
+from nlpx.data.data import MultiTaskDataset, merge_datasets, Data
 from .dps_bart import  BartDPSConfig, BartDPSEncoder, BartDPSTokenizerFast, BartDPSModelForPTR
 from .dps_t5 import T5DPSConfig, T5DPSEncoder, T5DPSTokenizerFast, T5DPSModelForPTR
 from .dps_base import TaskCase, Encoder_Path_Type, DPSConfig, DPSEncoder, DPSTokenizer, DPSModelForPTR, DPSTokenizerFast
 
-from src.nlps.approach import TransformerArgument, approach_register
-from src.nlps.approach.transformer import DumpCallback, Transformer
-from src.nlps.argument import argument_class, Argument
-from src.nlps.data import DatasetSplitType, Name2DataClass, TextData
-from src.nlps.utils.runtime import RunTime
+from nlpx.approach import TransformerArgument, approach_register
+from nlpx.approach.transformer import DumpCallback, Transformer
+from nlpx.argument import argument_class, Argument
+from nlpx.data import DatasetSplitType, Name2DataClass, TextData
+from nlpx.utils.runtime import RunTime
 from ..utils.ppf_utils import PGSTModelArgument
 
 
@@ -300,11 +300,11 @@ class DisentangledPS(Transformer):
     def _model_init(self, *args, **kwargs):
         transformer: DPSModelForPTR = super()._model_init(*args, **kwargs)
         args: DPSArgument = self.args
-        if args.variant is not DPSVariantType.BASELINE:
+        if args.variant is not DPSVariantType.BASELINE and not self.plm_is_from_check_point():
             transformer = self._first_stage(transformer)
         config: DPSConfig = transformer.config
         config.name2taskcase = args.name2taskcase
-        config.dynamic_taskcase = None
+        config.dynamic_taskcase = args.name2taskcase[self.precessing_data.abbreviation]
         DPSTrainer.set_evaluate_end_call_back(lambda output: output[self.precessing_data.abbreviation])
         return transformer
 
@@ -333,7 +333,7 @@ class DisentangledPS(Transformer):
         return tokenizer.preprocess_input_sequence(sequence)
 
     def _preprocess(self, samples: Union[Dataset, Dict[str, Any]], *args, **kwargs):
-        from src.nlps.data import TextData
+        from nlpx.data import TextData
         data: TextData = self.precessing_data
         kwargs["max_length"] = data.max_length
         result = super()._preprocess(samples, *args, **kwargs)

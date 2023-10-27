@@ -5,13 +5,13 @@ import random
 import datasets
 from datasets import Dataset
 
-from src.nlps.data import Data, data_register, DatasetSplitType, TaskType, GeneralDataset, DataContainer, DataDirCategory
+from nlpx.data import Data, data_register, DatasetSplitType, TaskType, GeneralDataset, DataContainer, DataDirCategory
 from typing import Dict, Tuple, Union, Any, MutableMapping
 import os
 import pandas as pd
 
-from src.nlps.data.data import ALL_DATASET_SPLIT
-from src.nlps.utils.utils import max_length_of_sequences
+from nlpx.data.data import ALL_DATASET_SPLIT
+from nlpx.utils.utils import max_length_of_sequences
 
 
 @data_register

@@ -8,9 +8,15 @@ from typing import Dict, Any, Callable
 import torch
 from ray import tune
 
-from src.nlps.approach import Approach, Transformer
-
+from nlpx.approach import Approach, Transformer
+from nlpx.utils import utils
 Name2Setting: Dict[str, type] = dict()
+
+
+def set_seed(seed=1):
+    utils.set_seed(seed)
+    torch.manual_seed(seed)
+
 
 def setting_register(cls):
     if cls.abbreviation not in Name2Setting:

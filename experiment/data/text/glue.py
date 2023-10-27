@@ -4,9 +4,9 @@ from typing import Dict, Any, Tuple
 
 from datasets import Dataset
 
-from src.nlps.data import HFData, DatasetSplitType, TaskType, data_register
-from src.nlps.data.data import ALL_DATASET_SPLIT
-from src.nlps.utils.utils import max_length_of_sequences, SequencePairBatch
+from nlpx.data import HFData, DatasetSplitType, TaskType, data_register
+from nlpx.data.data import ALL_DATASET_SPLIT
+from nlpx.utils.utils import max_length_of_sequences, SequencePairBatch
 
 
 class GLUE(HFData, ABC):
