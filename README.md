@@ -38,7 +38,7 @@ Running follow command to build the image of basic environment of NLPx.
 
 To use Nvidia GPU in docker containers, please install the "NVIDIA Container Toolkit" referring to [here](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/install-guide.html#installing-with-apt).
 
-### Environment Variables
+#### Environment Variables
 
 There are some necessary variables used during building images. They are defined in the file ".env" 
 
