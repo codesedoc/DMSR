@@ -36,32 +36,47 @@ python3 -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt
 ```
-To protect system data during running docker container, it is recommended to creat a user belong to docker group, but without root permission.
-Running follow command can create an account name "docker-1024"!
-
-` bash sh/docker-1024 `
-
-Running follow command to build the image of basic environment of NLPx. 
-
-` docker compose build nlpx-env`
-
-To use Nvidia GPU in docker containers, please install the "NVIDIA Container Toolkit" referring to [here](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/install-guide.html#installing-with-apt).
-
-#### Environment Variables
-
-There are some necessary variables used during building images. They are defined in the file ".env" 
-
 ## Conduct Experiments
-Running follow command to start 
 
-` bash sh/docker-run `
+### Command to lauch the experiment for train, evaluation, and test.
+```shell
+python main.py -t ptr -d ppf --dataset_raw_dir storage/dataset/ppf/raw  -a dmsr --output_dir tmp --do_train --do_eval --do_predict --include_inputs_for_metrics=True 
+```
 
-To conduct different variants of method in paper, please define the value of variable "ARGS_FILE" to the path of experiment argument file.
+### Explanation of Command Arguments:
+#### Meta Argument of nlpe
+<ul>
+    <li> -d [name of dataset] </li>
+    <li> -t [name of task] </li>
+    <li> -dataset_raw_dir [path of dataset dir] </li>
+    <li> -a [name of approach] </li>
+    <li> --debug : Swith on debug mode</li>
+</ul>
 
-## Citation
+#### DMSR Argument
+<ul>
+    <li> --variant [name of variant of backbone model]: One of ("base", "st", "pg", "st2pg", "pg2st") is available, default is base.  </li>
+    <li> --checkpoint [path of trained model]: It is used for only do evaluation on validation/test set. </li>
+    <li> --backbone [name of PLM used as backbone model]: One of ("t5", "bart") is available, default is t5. </li>
+</ul>
+
+#### TrainerArgument of transformer
+<ul>
+    <li> --output_dir [path of output dir] </li>
+    <li> --do_train: Conduct train</li>
+    <li> --do_eval: Conduct evaluation on validation set</li>
+    <li> --do_predict: Conduct  evaluation on test set</li>
+    <li> --include_inputs_for_metrics=True: Deliver inputs as one argument during calculate metrics. </li>
+</ul>
+
+The other usages of transformers TrainiArgument can be referred to [here](https://huggingface.co/docs/transformers/v4.45.2/en/main_classes/trainer#transformers.TrainingArguments).
+
+
+## BibTeX
 
 ```
-@inproceedings{sheng-etal-2023-learning,
+@inproceedings{
+    sheng-etal-2023-learning,
     title = "Learning Disentangled Meaning and Style Representations for Positive Text Reframing",
     author = "Sheng, Xu  and
       Fukumoto, Fumiyo  and
@@ -75,6 +90,5 @@ To conduct different variants of method in paper, please define the value of var
     publisher = "Association for Computational Linguistics",
     url = "https://aclanthology.org/2023.inlg-main.31",
     pages = "424--430",
-    abstract = "The positive text reframing (PTR) task which generates a text giving a positive perspective with preserving the sense of the input text, has attracted considerable attention as one of the NLP applications. Due to the significant representation capability of the pre-trained language model (PLM), a beneficial baseline can be easily obtained by just fine-tuning the PLM. However, how to interpret a diversity of contexts to give a positive perspective is still an open problem. Especially, it is more serious when the size of the training data is limited. In this paper, we present a PTR framework, that learns representations where the meaning and style of text are structurally disentangled. The method utilizes pseudo-positive reframing datasets which are generated with two augmentation strategies. A simple but effective multi-task learning-based model is learned to fuse the generation capabilities from these datasets. Experimental results on Positive Psychology Frames (PPF) dataset, show that our approach outperforms the baselines, BART by five and T5 by six evaluation metrics. Our source codes and data are available online.",
 }
 ```

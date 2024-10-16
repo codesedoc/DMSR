@@ -270,7 +270,7 @@ class CheckpointOrigin(StrEnum):
 
 @dataclass
 class BackboneArgument:
-    name: BackboneName = field(
+    backbone: BackboneName = field(
         default= BackboneName.T5,
         metadata={
             "help": "Specify the name of backbone",
@@ -286,12 +286,16 @@ class BackboneArgument:
     )
     
     variant: Glossary = field(
-        default= VariantGlossaryEnum.ST2PG.value,
+        default= VariantGlossaryEnum.BASE.value,
         metadata={
             "help": "Specify the variant of backbone",
             "choices" : [str(v.value) for v in VariantGlossaryEnum]
         }
     )
+    
+    @property
+    def name(self):
+        return self.backbone
     
     def __post_init__(self, *args, **kwargs):
         trainer_args = ArgumentPool()["trainer_argument"]
