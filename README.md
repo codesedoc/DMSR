@@ -15,19 +15,22 @@ Source of data: [MSCOCO](https://cocodataset.org/#home) ([version from here](htt
 ### Requirements
 <ul>
     <li> Git </li>
-    <li> Python (>=3.11) </li>
+    <li> Python >= 3.11 </li>
+    <li> CUDA 12.6 (if NVIDIA GPU is available) </li>
 </ul>
 
 ### Step 1: Get Code and datasets
 Clone the repository.
 ```shell
-git clone git@github.com:codesedoc/DMSR.git
+git clone https://github.com/codesedoc/DMSR.git
 cd DMSR
 ```
 ### Step 2: Install Requirements
 #### :large_blue_diamond: Conda
 ```shell
-conda create -n dmsr python=3.11
+conda env create -f conda/environment_linux-64.yml # for linxu-64 platform
+# conda env create -f conda/environment_oxs-arm64.yml # for oxs-arm64 (Mac Silicon) platform
+# conda env create -f conda/environment_win-64.yml # for win-64 platform
 conda activate dmsr
 ```
 #### :large_blue_diamond: Python Virtual Environment
