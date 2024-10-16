@@ -1,5 +1,12 @@
 /.idea
 ./**/*.pt
-.DS_Store
+/**/.DS_Store
 /**/.cache
 /**/build
+/local
+/tmp
+/**/__pycache__
+.dockerignore
+.venv
+tmp.py
+/log

@@ -1,8 +1,6 @@
-# Learning Disentangled Meaning and Style Representations for Positive Text Reframing
+# Learning Disentangled Meaning and Style Representations for Positive Text Reframing [:link:](https://aclanthology.org/2023.inlg-main.31/)
 
-## Natural Language Process System-set (NLPx)
-The code of [paper](https://aclanthology.org/2023.inlg-main.31/) is developed on a python package for processing NLP tasks based on transformers, pytorch, datasets etc. libraries.
-Its mission is to reduce the duplicate labors when we set up and NLP models or framework in current popular deep learning framework or methodology cross multiple nodes.
+The code of is developed on [nlpe](https://github.com/codesedoc/nlpe), a python package for processing NLP experiments.
 
 ## Data
 <ol>
@@ -13,20 +11,31 @@ Its mission is to reduce the duplicate labors when we set up and NLP models or f
 
 Source of data: [MSCOCO](https://cocodataset.org/#home) ([version from here](https://github.com/IBM/quality-controlled-paraphrase-generation/tree/main/data/mscoco)), [Yelp](https://www.yelp.com/dataset) ([version from here](https://github.com/shentianxiao/language-style-transfer/tree/master/data/yelp)), [PPF](https://github.com/SALT-NLP/positive-frames)
 
-## Installation
-### Install from source
-Clone the repository and install NLPx with the following commands
+## Enviroment Setup
+### Requirements
+<ul>
+    <li> Git </li>
+    <li> Python (>=3.11) </li>
+</ul>
+
+### Step 1: Get Code and datasets
+Clone the repository.
 ```shell
 git clone git@github.com:codesedoc/DMSR.git
 cd DMSR
-pip install -e .
 ```
-### Install with Docker
-#### Preparation 
-<ul>
-    <li> Ubuntu (22.04 LTS) </li>
-    <li> Docker (>=  23.0.5) </li>
-</ul>
+### Step 2: Install Requirements
+#### :large_blue_diamond: Conda
+```shell
+conda create -n dmsr python=3.11
+conda activate dmsr
+```
+#### :large_blue_diamond: Python Virtual Environment
+```shell
+python3 -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
+```
 To protect system data during running docker container, it is recommended to creat a user belong to docker group, but without root permission.
 Running follow command can create an account name "docker-1024"!
 
