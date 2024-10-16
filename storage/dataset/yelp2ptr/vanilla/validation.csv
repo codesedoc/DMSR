@@ -1,0 +1,139 @@
+input,i_sentiment,i_location,reference,r_sentiment,r_location,semantic_similarity
+"_num_ there service is awful , _num_ there prices are awful .",negative,6288,"great guy , great service .",positive,227287,3.393150568008423
+i ordered a steak taco for my son and the meat looked inedible .,negative,142807,tornado is the one of the best steak places i have visited .,positive,362061,3.0389130115509033
+"on the positive note , the food was cheap .",negative,136309,very reasonable prices and you get a lot of food .,positive,360815,3.0042033195495605
+the waitress was nice but not very attentive .,negative,115507,the service is very polite and attentive .,positive,383668,3.180680990219116
+"bad customer service , dishonest , and bad results .",negative,107764,good service and trustworthy .,positive,330922,3.094191312789917
+sushi did not taste fresh .,negative,83068,all sashimi fresh .,positive,316229,3.089841842651367
+i had one bite after my partner had one piece .,negative,30877,the all in one smoothie is the most amazing smoothie i have ever had !,positive,251299,3.0705673694610596
+common sense and general friendliness would have been nice .,negative,67547,"friendly , kind and super nice .",positive,162155,3.446610927581787
+"the food is made really quickly -- under five minutes , usually .",negative,130603,the food is always so delicious and comes out quick !,positive,300281,3.072003126144409
+"after about a half hour of this , we left , extremely disappointed .",negative,56568,"believe me , you will feel extremely satisfied when you leave .",positive,219478,3.3692073822021484
+big mistake .,negative,7548,"clean , clean , and clean !",positive,168879,3.11388635635376
+the morton 's salad and the caesar salad were basically the same .,negative,69511,both of us also had a caesar salad to start our meal .,positive,335391,3.1873180866241455
+wo n't be coming back .,negative,7978,will be going back soon !,positive,378497,3.3063886165618896
+"veggies and toppings were fresh , but limited .",negative,76783,the toppings tasted fresh .,positive,292902,3.2003185749053955
+this is the worst place in the world .,negative,126940,the best ice cream place ever .,positive,294606,3.1233601570129395
+i really could n't believe it .,negative,94908,the all in one smoothie is the most amazing smoothie i have ever had !,positive,251299,3.1200149059295654
+the absolute worst service i 've ever experienced .,negative,139498,i 've always experienced great service every time i come in !,positive,246433,3.2108724117279053
+i could n't take it any more !,negative,96306,the all in one smoothie is the most amazing smoothie i have ever had !,positive,251299,3.0079057216644287
+so nobody went home with their own food .,negative,10817,and everyone got to bring home some leftovers .,positive,339793,3.0955915451049805
+i do n't see how anyone could give this place _num_ stars .,negative,90501,i give this restaurant a solid _num_ stars !,positive,203077,3.3904082775115967
+the service was friendly but the food was very poor .,negative,4879,staff is very friendly and the food was great .,positive,200449,3.2432873249053955
+"i have to say , i was disappointed .",negative,58493,i 'm extremely satisfied .,positive,332915,3.359884262084961
+i 'm _num_ % sure we will not be ordering from there again .,negative,141808,"i ordered them for delivery , will definitely order again !",positive,377338,3.264502763748169
+the shrimp lo mein was ok but the shrimp was overcooked .,negative,2325,"it was appropriately spicy , flavorful , and the seafood was not overcooked .",positive,255934,3.013103485107422
+"as was our waiter , who dealt with all my complaining .",negative,115397,the waitress handled each and every person with grace and attentiveness .,positive,245741,3.0115549564361572
+"i give the product _num_ stars , but the staff only _num_ star .",negative,79692,i give this restaurant a solid _num_ stars !,positive,203077,3.2720530033111572
+useless .,negative,80658,"clean , clean , and clean !",positive,168879,3.250633001327514
+the food is really bad .,negative,14737,"the food is really good , fresh vegetables and sauces .",positive,238899,3.204923391342163
+i will not be returning to this place again .,negative,113985,will be back again soon i 'm sure .,positive,239657,3.1141350269317627
+the whole thing was a mess .,negative,76207,"clean , clean , and clean !",positive,168879,3.306800842285156
+"additionally , the staff were pushy and a little on the rude side .",negative,51569,"the staff is always friendly and helpful without being pushy , too .",positive,362712,3.399223566055298
+pretty poor experience here .,negative,12437,sometimes excellent and sometimes poor .,positive,345915,3.021451711654663
+i do not and will not recommend this company to anyone .,negative,123926,: ) i would recommend it to anyone .,positive,269511,3.0270111560821533
+"needless to say , we 're going back to enterprise for our rental needs .",negative,149402,we will be come back here real soon !,positive,244200,3.1621108055114746
+terrible service throughout !,negative,113016,the service is always wonderful here !,positive,354455,3.328503131866455
+i 'm probably never going back to this home depot again .,negative,97544,i 'll definitely be going back here .,positive,348877,3.48049259185791
+but food and drinks were disappointing .,negative,10193,"food was great , service was great , drinks were great .",positive,350413,3.122654676437378
+it truly had zero flavor .,negative,49403,it actually has a flavor .,positive,361264,3.288748025894165
+"on an early saturday evening , i walked in to an empty restaurant .",negative,17967,i have never felt more comfortable and welcome in any restaurant !,positive,188687,3.0140674114227295
+so my boyfriend and i went to las vegas for vacation .,negative,127890,one of my favorite places to go when i 'm in vegas .,positive,316523,3.0555613040924072
+i had a burger w/ fries and my friend had a blt w/ fries .,negative,136472,i am a burger snob and simply love their burgers and shakes .,positive,277398,3.0980725288391113
+"i probably wo n't be back any time soon , especially not this location .",negative,139351,will be back again soon i 'm sure .,positive,239657,3.006117105484009
+i really was n't impressed and i would n't stay there again .,negative,21040,i was definitely impressed .,positive,364354,3.0465357303619385
+worst service i 've had in the area .,negative,139928,the greek salad with chicken is the best salad i 've ever had .,positive,293666,3.0473108291625977
+"stale , tasteless chips and some sort of salsa juice .",negative,110249,sandwiches are tasty and fresh healthy ingredients .,positive,198260,3.293751001358032
+place is pretty cool as far as decoration but the food was awful .,negative,22825,"great wine list , terrific food and a totally awesome contemporary decor .",positive,249448,3.04797625541687
+this was the worst experience i have ever had at a hotel .,negative,50709,best experience !,positive,242503,3.0647733211517334
+no way !,negative,23879,"clean , clean , and clean !",positive,168879,3.563067674636841
+this is so unacceptable .,negative,86906,"clean , clean , and clean !",positive,168879,3.256653308868408
+"your customer service and managers are rude , rude , and rude .",negative,84909,nice attentive owners and great service .,positive,357391,3.304536819458008
+"when we walked in , my crew headed straight to the bar .",negative,25750,"great atmosphere , great date place , great bar , and great food !",positive,172151,3.0724411010742188
+i will not be going back here unless it 's a dollar tree emergency .,negative,144675,i 'll definitely be going back here .,positive,348877,3.287042140960694
+i went here a couple weeks ago and got the sesame chicken .,negative,41330,the greek salad with chicken is the best salad i 've ever had .,positive,293666,3.1863842010498047
+"if you want good bbq , go to little miss bbq !",negative,42545,"clean , clean , and clean !",positive,168879,3.1797850131988525
+the food stinks ( besides the pizza ) and the drinks are watered down .,negative,69166,"awesome pizza , great cocktails , and salads .",positive,223133,3.065877676010132
+_num_ minutes later our waiter arrived and took our order .,negative,28010,we were seated right away and had our drink orders right away .,positive,304334,3.0589914321899414
+"so , here 's a run down .",negative,27424,best brunch deal in town - and hands down the best vegan brunch ever .,positive,339064,3.0951130390167236
+i did not like their food or service .,negative,66375,i love their food anyway !,positive,170452,3.1720290184020996
+i still have not received my deposit back .,negative,76064,"i got my full security deposit back , plus interest !",positive,362314,3.3983376026153564
+definitely the worst in the area .,negative,123195,best brunch deal in town - and hands down the best vegan brunch ever .,positive,339064,3.0281519889831543
+"however , the beds were comfy .",negative,52278,"room was nice , comfy bed and clean .",positive,281208,3.6534416675567623
+i ordered the steak fajita $ _num_ .,negative,28344,i ordered the blackened steak medium rare .,positive,197639,3.0798473358154297
+sure the ambience and the food was ok .,negative,120794,the service was excellent and the food was outstanding !,positive,235606,3.0414984226226807
+chicken was bland no flavor .,negative,154580,chicken was juicy and flavorful .,positive,193828,3.1305174827575684
+room was ok .,negative,125313,"great location , nice rooms , nice hotel and the location is perfect .",positive,174503,3.01311993598938
+disgusting ... ... ... .,negative,68131,super pleased .,positive,300679,3.1263136863708496
+dead and alive !,negative,139875,"clean , clean , and clean !",positive,168879,3.2969448566436768
+she was so rude .,negative,33458,"she was the best , knowledgeable and polite .",positive,265666,3.1945083141326904
+bad experience ... .,negative,35246,had a good experience overall .,positive,178224,3.338810920715332
+i will literally never stop until this is resolved .,negative,148416,i will keep going .,positive,274709,3.177645444869995
+"i do n't know , that 's why i 'm asking .",negative,43652,the all in one smoothie is the most amazing smoothie i have ever had !,positive,251299,3.114483118057251
+we have waited _num_ weeks to get our trees scheduled to be trimmed .,negative,156255,we got waited on right away .,positive,214897,3.2911489009857178
+"frozen fries , frozen wings , canned chili , canned cheese sauce .",negative,28420,i ordered boneless wings to go with fries and sweet tea .,positive,346010,3.2213215827941895
+six of us sat down to dine and we went to order .,negative,58591,we were seated right away and had our drink orders right away .,positive,304334,3.3584961891174316
+"quickly seated , drinks , and appetizer were great .",negative,82807,"everything was wonderful , appetizers were perfect .",positive,299107,3.5318782329559326
+the person who rang me up gave me a free oil change coupon .,negative,85423,also got an oil change .,positive,161082,3.057891845703125
+vegetable curry : flavorless ( spice level _num_ too ! ),negative,61737,the lamb curry had a great flavor and the lamb was very tender .,positive,341793,3.107039213180542
+the service was very prompt and polite .,negative,139148,service was very friendly and quick .,positive,271817,3.6689088344573975
+"besides , i make better italian food myself ( thanks mom ) .",negative,82822,made a great meal even better .,positive,217760,3.007213830947876
+"and i think the cheesy dcor is pretty cool , too .",negative,45597,delicious savory croissants .,positive,369037,3.042457818984986
+they get packed for lunch and have lots of chicago shit on the walls .,negative,23099,good for both american and chinese and always packed during lunch .,positive,187339,3.0939409732818604
+thankfully the meal was pretty cheap .,negative,32111,very good cheap food .,positive,160240,3.179607391357422
+totally terrible service .,negative,51944,truly wonderful service .,positive,239387,3.7386820316314697
+would not be coming here ever again .,negative,30433,will definitely be coming to this place more often .,positive,202178,3.018027067184448
+"ok , so i had the $ _num_ lunch .",negative,25176,"what a unique and yummy lunch we had , big servings and soooo delicious !",positive,330375,3.0061471462249756
+"the food was nothing special , to say the least .",negative,130870,"nothing special - classic diner cuisine , sandwiches , side salads , and soups .",positive,365590,3.158665418624878
+the breakfast food selection was poor .,negative,61479,breakfast was good enough .,positive,383503,3.0122950077056885
+this place is the worst !,negative,14810,"clean , clean , and clean !",positive,168879,3.249603271484375
+terrible terrible customer service .,negative,5261,terrific service .,positive,198646,3.6035897731781006
+every time i 've been here its been worse than the last time .,negative,15629,best brunch deal in town - and hands down the best vegan brunch ever .,positive,339064,3.0063936710357666
+"will not be eating here again , even though the food is great .",negative,140203,definitely will eat here again ( when i travel to az ) !,positive,209488,3.0564968585968018
+but this place was just awful .,negative,3985,"clean , clean , and clean !",positive,168879,3.0033810138702393
+i eat take out from this place every week because someone else treats me .,negative,143973,i probably eat here at least once a week .,positive,237334,3.0231103897094727
+which are really just average sized shrimp .,negative,16648,"shrimp dishes are outstanding with large , plump high quality pieces of shrimp .",positive,265309,3.3961873054504395
+"out of beans , beef , and chicken .",negative,27281,best brunch deal in town - and hands down the best vegan brunch ever .,positive,339064,3.1015279293060303
+it 's never busy anymore so there is no excuse .,negative,70722,the best thing about this course is it is almost never busy .,positive,376674,3.102445125579834
+how this place got _num_ stars out of _num_ i 'll never know .,negative,9611,this place deserves _num_ stars !,positive,281498,3.020549058914185
+i 'm totally disappointed .,negative,100920,i 'm extremely satisfied .,positive,332915,3.92754864692688
+worst sonic i 've ever been to .,negative,118169,"best donut i 've ever had , fresh and amazing , beautiful donuts .",positive,321679,3.3831048011779785
+bland pasta sauce ?,negative,49112,"the noodles , sauce and lobster was delicious .",positive,253373,3.6957004070281982
+"friendly staff , hot food , food was ok , they forgot my coffee .",negative,157523,staff is very friendly and the food was great .,positive,200449,3.00394606590271
+the server was kind of rude and dismissive in general .,negative,139851,service was very friendly and accommodating .,positive,359118,3.2650296688079834
+service was rude as could be as well .,negative,55534,service was very friendly and accommodating .,positive,359118,3.005212783813477
+the apartment is a mess .,negative,19801,"clean , clean , and clean !",positive,168879,3.163313627243042
+prices are very inexpensive .,negative,128850,the pricing is very reasonable and affordable .,positive,240954,4.315931797027588
+after i finished my fries i went for my fish sandwich .,negative,82083,great place to go to have a tuna sandwich !,positive,263851,3.1939456462860107
+"after this meal , i doubt i 'll ever go back .",negative,50007,i 'll definitely be going back here .,positive,348877,3.245326280593872
+hands down the most aweful margarita i have had in my life .,negative,29453,the all in one smoothie is the most amazing smoothie i have ever had !,positive,251299,3.2053909301757812
+"at $ _num_ for a taco , the price was awesome .",negative,17329,"tastes great , good price .",positive,217097,3.1190922260284424
+first off it looks like it 's barely clean on the inside .,negative,58431,it 's clean and looks the same as it always did .,positive,237578,3.086228609085083
+unfortunately the service is usually poor .,negative,75211,sometimes excellent and sometimes poor .,positive,345915,3.1033177375793457
+very very very bad service !,negative,44619,the service here is always very good !,positive,182204,3.0006160736083984
+the absolute worse haircut i 've had at this establishment .,negative,33723,great cut .,positive,211810,3.1196556091308594
+i have never not had to wait in a 10+ minute wait line .,negative,159296,the all in one smoothie is the most amazing smoothie i have ever had !,positive,251299,3.1280927658081055
+the only thing that makes this store good is the staff .,negative,34043,staff and customers here are very friendly and helpful .,positive,277891,3.0917282104492188
+"as for the food , it was far below mediocre .",negative,152263,the service is excellent and food was superb .,positive,383287,3.1400392055511475
+"when the food is gets to the table , it is usually cold .",negative,148485,the food always comes out nice and hot .,positive,283698,3.3230743408203125
+the veggies were piping hot and the baked beans were tasty .,negative,47305,pile veggies as high as you possibly can .,positive,277691,3.0007312297821045
+"at that point , i paid for my box of chocolates .",negative,51519,these chocolates are the best i have ever tasted .,positive,359506,3.0156962871551514
+not too pleased .,negative,77563,i was definitely impressed .,positive,364354,3.043628454208374
+fries were undercooked and the burger crap .,negative,87898,this was a good experience the burgers were big and cooked right .,positive,366981,3.0245862007141113
+i would advise any customers who encounter similar problems to do the same .,negative,84796,i would recommend them to any one .,positive,291337,3.039093494415283
+this was high priced cafeteria food .,negative,40011,this place was a great lunch venue .,positive,165336,3.8401308059692383
+i 'll probably be visiting the mesa location from now on .,negative,77577,i will visit again .,positive,244588,3.0747289657592773
+the bar is a dreadful place with a painfully slow staff .,negative,41410,the staff was extremely friendly and very quick .,positive,196077,3.02762508392334
+food is cheap but portions are small .,negative,272,great food with generous portions at a reasonable price .,positive,366098,3.15714955329895
+"once was enough , i 'll never go back there again .",negative,128581,i 'll definitely be going back here .,positive,348877,3.30621337890625
+by far the worst hotel i have ever stayed at .,negative,155056,best place ever .,positive,169570,3.1347014904022217
+there are better mexican places .,negative,40632,my favorite place for mexican food !,positive,200098,3.103665590286255
+i will never step foot in this place again !,negative,114357,i will surely come back again !,positive,224877,3.0598466396331787
+the food ranges from alright to absolutely awful .,negative,56653,"food is okay , not the highest quality but still good .",positive,352614,3.0121123790740967
+and i drove my car out .,negative,38481,i was on a road trip and my clutch went out on my car .,positive,310569,3.022139310836792
+star _num_ - how was the service and atmosphere ?,negative,74657,_num_ star food and service .,positive,359214,3.230862617492676
+office staff rude .,negative,97491,"the staff is knowledgeable , honest , and polite .",positive,273259,3.3168206214904785
+the selection of quality beers is extremely limited .,negative,143310,great selection of beer .,positive,374783,3.0191848278045654
+one of the worst haircuts i ever had .,negative,62295,best hair salon i 've ever been to .,positive,346827,3.574878454208374
+she 's got an attitude problem .,negative,105615,she had a great attitude and smile .,positive,298199,3.0733282566070557
+they have the worst customer service .,negative,44971,they had excellent customer services .,positive,290183,3.223050832748413
