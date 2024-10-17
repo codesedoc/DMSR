@@ -18,6 +18,9 @@ class GlossaryEnum(StrEnum):
         return super().value
     def __str__(self) -> str:
         return str(self.value)
+    
+    def __repr__(self) -> str:
+        return str(self)
 
 
 def get_unified_model_type_str(model_name):

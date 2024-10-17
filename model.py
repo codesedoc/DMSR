@@ -108,12 +108,6 @@ class DMSRModel(PreTrainedModel, ABC):
         if transformer.backbone_arg.variant != VariantGlossaryEnum.BASE.value:
             transformer.init_dynamic_layers_from_pretraind()
         return transformer
-    
-    # def forward(self, *args, **kwargs) -> Any:
-    #     dynamic_forward = get_dynamic_forward(self, VariantGlossaryEnum)
-    #     output = dynamic_forward(*args, super_forward=super().forward, **kwargs)
-    #     assert output is not None
-    #     return output
 
 
 class T5DMSRConfig(T5Config):
@@ -192,47 +186,6 @@ def _merge_two_sides(first_layers: nn.ModuleList, second_layers: nn.ModuleList) 
     return _ID2DynamicMergedLayers[_id]
 
 
-# def _dynamic_forward(model: DMSRModel, forward_layers: nn.ModuleList, /, *args, super_forward: Callable = None, **kwargs) -> Any:
-#     assert isinstance(model, DMSRModel)
-#     # encoder.backbone_layers = 1
-#     layers_tmp = model.dynamic_layers
-#     assert isinstance(forward_layers, nn.ModuleList)
-#     model.set_dynamic_layers(forward_layers)
-#     if not isinstance(super_forward, Callable):
-#         super_forward = super(DMSRModel, model).forward
-#     breakpoint()
-#     output = super_forward(*args, **kwargs)
-#     model.set_dynamic_layers(layers_tmp)
-#     return output
-
-
-# def _single_side_forward(model: nn.Module, forward_layers: nn.ModuleList, /, *args, **kwargs) -> Any:
-#     assert isinstance(forward_layers, nn.ModuleList)
-#     output = _dynamic_forward(model, forward_layers, *args, **kwargs)
-#     return output
-
- 
-# def _double_side_forward(encoder: nn.Module, first_layers: nn.ModuleList, second_layers: nn.ModuleList, /, *args,
-#                         **kwargs) -> Any:
-#     first2second_layers, second2first_layers = _merge_two_sides(first_layers, second_layers)
-#     kwargs['output_hidden_states'] = True
-#     first2second_output = _dynamic_forward(encoder, first2second_layers, *args, **kwargs)
-#     second2first_output = _dynamic_forward(encoder, second2first_layers, *args, **kwargs)
-#     output = []
-#     for i in range(len(first2second_output)):
-#         f_o, s_o = first2second_output[i], second2first_output[i]
-#         if isinstance(f_o, torch.Tensor):
-#             pooling = encoder.cross_path_pooling((1, 2))
-#             output.append(torch.squeeze(pooling(torch.stack([f_o, s_o], -1)), -1))
-#         else:
-#             output.append((f_o, s_o))
-#     if type(first2second_output) is not type:
-#         output = type(first2second_output)(*output)
-#     else:
-#         type(first2second_output)(output)
-#     return output
-
-
 class VariantGlossaryEnum(GlossaryEnum):
     PG = auto()
     ST =  auto()
@@ -261,13 +214,11 @@ def dynamic_layers_in_forward(model: DMSRModel, variant_glossary:Glossary) -> nn
     raise ValueError(f"Value of variant ({variant_glossary.value}) is invalid")
 
 
-
 class CheckpointOrigin(StrEnum):
     LOCAL = auto()
     HF = auto()
     
     
-
 @dataclass
 class BackboneArgument:
     backbone: BackboneName = field(
@@ -285,7 +236,7 @@ class BackboneArgument:
         }
     )
     
-    variant: Glossary = field(
+    variant: VariantGlossaryEnum = field(
         default= VariantGlossaryEnum.BASE.value,
         metadata={
             "help": "Specify the variant of backbone",
@@ -299,6 +250,8 @@ class BackboneArgument:
     
     def __post_init__(self, *args, **kwargs):
         trainer_args = ArgumentPool()["trainer_argument"]
+        if isinstance(self.variant, str):
+            self.variant = VariantGlossaryEnum(str).value
         if self.checkpoint is None:
             self.checkpoint = trainer_args.output_dir
         try: 
@@ -310,10 +263,7 @@ class BackboneArgument:
         except:
             self.checkpoint = BackboneName2HFPath[self.name]
             self.checkpoint_origin = CheckpointOrigin.HF
-        
-    # @property
-    # def pretrained_types(self) -> BackbonePretrainedTypes:
-    #     return BackboneName2PretrainedTypes[self.name]
+
     @property
     def model_type_str(self) -> str:
         return get_unified_model_type_str(self.name)
