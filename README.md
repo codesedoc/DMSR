@@ -43,7 +43,7 @@ pip install -r requirements.txt
 
 ### Command to lauch the experiment for train, evaluation, and test.
 ```shell
-python main.py -t ptr -d ppf --dataset_raw_dir storage/dataset/ppf/raw  -a dmsr --output_dir tmp --do_train --do_eval --do_predict --include_inputs_for_metrics=True 
+python main.py -t ptr -d ppf --dataset_raw_dir storage/dataset/ppf/raw  -a dmsr --output_dir tmp --do_train --do_eval --do_predict 
 ```
 
 ### Explanation of Command Arguments:
@@ -51,7 +51,7 @@ python main.py -t ptr -d ppf --dataset_raw_dir storage/dataset/ppf/raw  -a dmsr 
 <ul>
     <li> -d [name of dataset] </li>
     <li> -t [name of task] </li>
-    <li> -dataset_raw_dir [path of dataset dir] </li>
+    <li> --dataset_raw_dir [path of dataset dir] </li>
     <li> -a [name of approach] </li>
     <li> --debug : Swith on debug mode</li>
 </ul>
@@ -69,7 +69,7 @@ python main.py -t ptr -d ppf --dataset_raw_dir storage/dataset/ppf/raw  -a dmsr 
     <li> --do_train: Conduct train</li>
     <li> --do_eval: Conduct evaluation on validation set</li>
     <li> --do_predict: Conduct  evaluation on test set</li>
-    <li> --include_inputs_for_metrics=True: Deliver inputs as one argument during calculate metrics. </li>
+    <!-- <li> --include_inputs_for_metrics=True: Deliver inputs as one argument during calculate metrics. </li> -->
 </ul>
 
 The other usages of transformers TrainiArgument can be referred to [here](https://huggingface.co/docs/transformers/v4.45.2/en/main_classes/trainer#transformers.TrainingArguments).
