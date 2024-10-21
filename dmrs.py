@@ -12,12 +12,12 @@ import torch
 import torch.nn as nn
 from datasets import Dataset
 from torch.utils.data import RandomSampler, Sampler
-from transformers import Seq2SeqTrainer, DataCollatorForSeq2Seq, TrainingArguments, TrainerState, TrainerControl, TrainerCallback, EvalPrediction, CONFIG_MAPPING, AutoTokenizer, AutoModelForSeq2SeqLM
+from transformers import Seq2SeqTrainer, DataCollatorForSeq2Seq, Seq2SeqTrainingArguments, TrainingArguments, TrainerState, TrainerControl, TrainerCallback, EvalPrediction, CONFIG_MAPPING, AutoTokenizer, AutoModelForSeq2SeqLM
 from accelerate.data_loader import DataLoaderShard
 from nlpe import Approach, ArgumentPool, ArgumentFactory, Pool, Data, TextData, DatasetSplitCategory
 from nlpe.utils import Glossary, global_logger
 from dataset import DatasetGlossaryId2VariantGlossary, GlossaryIDColumnName, InputColumnName, LabelColumnName
-from model import DMSRModel, BackboneArgument, VariantGlossaryEnum, dynamic_layers_in_forward
+from model import DMSRModel, BackboneArgument, VariantGlossaryEnum, dynamic_layers_in_forward, BackboneName
 from utils import log_segment
 
 
@@ -55,19 +55,22 @@ class DMSR(Approach):
         )
     
     def tokenization(self, data: TextData, split: DatasetSplitCategory) -> Dataset:
+        backbone_arg: BackboneArgument = ArgumentPool()["backbone_argument"]
         def _tokenize(samples: Dict):
             samples = dict(samples)
             assert isinstance(next(iter(samples.values())), list)
             self.logger.info(f"Tokeinze the Samples in Split '{split}' of Dataset '{data.dataset_name}'")
-            inputs = self.tokenizer(samples[InputColumnName])
+            input_column = samples[InputColumnName]
+            if backbone_arg.backbone == BackboneName.T5:
+                input_column = ["rewrite positively: " + i for i in input_column]
+            inputs = self.tokenizer(input_column)
             if LabelColumnName in samples:
                 inputs["labels"] = self.tokenizer(samples[LabelColumnName])["input_ids"]
-            for i, input_text in enumerate(samples[InputColumnName][:min(5, len(samples))]):
+            for i, input_text in enumerate(input_column[:min(5, len(samples))]):
                 self.logger.debug(f"Input {i}: {input_text}")
                 self.logger.debug(f"Label {i}: {samples[LabelColumnName][i]}")
                 for name, value in inputs.items():
                     self.logger.debug(f"{name} {i}: {value[i]}")
-                    self.logger.debug(f"{name} {i}: {value[i]}")  
             return inputs
         return data.load_dataset(split).map(_tokenize, batched=True)
     
@@ -85,11 +88,12 @@ class DMSR(Approach):
         return result
                
     def _process(self, data: TextData, *args, stage=1, **kwargs):
-        trainer_arg: TrainingArguments = ArgumentPool()["trainer_argument"]
+        trainer_arg: Seq2SeqTrainingArguments = ArgumentPool()["trainer_argument"]
         
         data.statistic_all_texts(tokenizor=lambda text: self.tokenizer(text)["input_ids"])
         self.logger.info(f"Max lengtg of {data.dataset_name} is: {data.max_length}")
         self.logger.info(f"Min lengtg of {data.dataset_name} is: {data.min_length}")
+        trainer_arg.generation_max_length = data.max_length + data.min_length
         trainer: Seq2SeqTrainer = self._init_trainer(data)
         match stage:
             case 1:
@@ -116,6 +120,7 @@ class DMSR(Approach):
                 raise ValueError()
             
     def _compute_metrics(self, eval_predictions: EvalPrediction):
+        meta_arg = ArgumentPool()["meta_argument"]
         tokenizer = self.tokenizer
         label_ids = eval_predictions.label_ids
         input_ids = eval_predictions.inputs
@@ -131,15 +136,35 @@ class DMSR(Approach):
         if predictions.shape[-1] == model.config.vocab_size:
             predictions = np.argmax(predictions, axis=-1)
         assert np.issubdtype(predictions.dtype, np.integer)
-        result = {"avg_gen_len": np.mean([np.count_nonzero(pred != tokenizer.pad_token_id) for pred in predictions])}
+        result = OrderedDict()
+        result["avg_gen_len"] = np.mean([np.count_nonzero(pred != tokenizer.pad_token_id) for pred in predictions])
+        # self.logger.info(str(predictions))
         predictions = map_ids2sequences(predictions)
         labels = map_ids2sequences(label_ids)
+        
+        assert len(inputs) == len(labels) == len(predictions)
+        items = []
+        for i, l, p in zip(inputs, labels, predictions):
+            if len(p.strip()) == 0:
+                p = 'null null null'
+            items.append(dict(input=i, reference=l, prediction=p))
+        # file_path = Path(ArgumentPool()["trainer_argument"].output_dir, "eval_generations.json")
+        # file_path.parent.mkdir(exist_ok=True)
+        # file_path.write_text(json.dumps(items, indent=4))
+        # if meta_arg.debug:
+        self.logger.info(json.dumps(items[:min(len(items), 10)], indent=4))
+        
         self.logger.info("********** Evaluate Predictions **********")
         result["prediction"] = (self.processing_data.evaluate(predictions=predictions, references=labels, inputs=inputs))
         self.logger.info("********** Evaluate Inputs **********")
         result["input"] = (self.processing_data.evaluate(predictions=inputs, references=labels, inputs=inputs))
         self.logger.info("********** Evaluate References **********")
         result["reference"] = (self.processing_data.evaluate(predictions=labels, references=labels, inputs=inputs))
+        
+        # if meta_arg.debug:
+        self.logger.info(json.dumps(result, indent=4))
+            
+        result["examples"] = items
         return result
      
 
@@ -211,6 +236,13 @@ class DMSRTrainer(Seq2SeqTrainer):
         tmp_layers = model.dynamic_layers
         model.set_dynamic_layers(dynamic_layers_in_forward(model, variant_glossary=variant_glossary))
         result = super().training_step(model, inputs)
+        model.set_dynamic_layers(tmp_layers)
+        return result
+
+    def prediction_step(self, model, inputs, prediction_loss_only, ignore_keys = None, **gen_kwargs):
+        tmp_layers = model.dynamic_layers
+        model.set_dynamic_layers(dynamic_layers_in_forward(model, variant_glossary=ArgumentPool()["backbone_argument"].variant))
+        result = super().prediction_step(model, inputs, prediction_loss_only, ignore_keys, **gen_kwargs)
         model.set_dynamic_layers(tmp_layers)
         return result
     

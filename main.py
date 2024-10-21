@@ -34,6 +34,8 @@ def parse_argument():
     if ArgumentPool().meta_argument["debug"]:
         ArgumentPool()["trainer_argument"].output_dir = Path(ArgumentPool()["trainer_argument"].output_dir, time_suffix)
     ArgumentPool()["trainer_argument"].run_name = time_suffix
+    ArgumentPool()["trainer_argument"].predict_with_generate = True
+    ArgumentPool()["trainer_argument"].include_inputs_for_metrics = True
     ArgumentPool().push(ArgumentFactory(
         argument_glossary="backbone_argument",
         argument_type= BackboneArgument,
